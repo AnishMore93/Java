@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="'/status'" th:object="${taskadmin}" method="POST">
+<div>
+<label for="name">Admin Name</label>
+<input type="text" placeholder="Enter your name" name="name" th:field="*{name}">
+<label for="username">Admin Username</label>
+<input type="text" placeholder="Enter Username" name="username" th:field="*{username}">
+<label for="password">Admin Password</label>
+<input type="password" placeholder="Enter Password" name="password" th:field="*{password}">
+<input type="submit">
+</div>
+<a th:href="@{/taskadminlogin}">Login Here</a>
+
+</form>
+</body>
+</html>

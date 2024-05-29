@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="'/saveupdate'" th:object="${student}" method="POST">
+<div>
+<input type="hidden" th:field="*{id}" name="id">
+
+<label for="name">Student name</label>
+<input type="text" placeholder="Enter your name" name="name" th:field="*{name}">
+<label for="age">Student age</label>
+<input type="text" placeholder="Enter your age" name="age" th:field="*{age}">
+<label for="grade">Student grade</label>
+<input type="text" placeholder="Enter your grade" name="grade" th:field="*{grade}">
+<input type="hidden" th:field="*{username}" name="username">
+<br>
+<input type="hidden" th:field="*{password}" name="password">
+  
+<input type="submit" value="Update">
+</div>
+</form>
+<a th:href="@{/studentlogin}">Login Here</a>
+
+
+</body>
+</html>

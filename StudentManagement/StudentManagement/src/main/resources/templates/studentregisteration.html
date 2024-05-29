@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+    form {
+        background: white;
+        padding: 2em;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 320px;
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-bottom: 0.5em;
+        color: #333;
+        font-weight: bold;
+    }
+    input[type="text"], input[type="password"] {
+        padding: 0.8em;
+        margin-bottom: 1em;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        font-size: 1em;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input[type="text"]:focus, input[type="password"]:focus {
+        border-color: #ff9a9e;
+        box-shadow: 0 0 5px rgba(255, 154, 158, 0.5);
+    }
+    input[type="submit"] {
+        padding: 0.8em;
+        border: none;
+        border-radius: 25px;
+        background-color: #ff9a9e;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    input[type="submit"]:hover {
+        background-color: #ff7a7e;
+        box-shadow: 0 4px 10px rgba(255, 122, 126, 0.4);
+    }
+    a {
+        margin-top: 1em;
+        color: #ff9a9e;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
+</head>
+<body>
+
+<form th:action="'/status'" th:object="${student}" method="POST">
+<div>
+<label for="name">Student Name</label>
+<input type="text" placeholder="Enter your name" name="name" th:field="*{name}">
+<label for="age">Student Age</label>
+<input type="text" placeholder="Enter your age" name="age" th:field="*{age}">
+<label for="grade">Student Grade</label>
+<input type="text" placeholder="Enter your grade" name="grade" th:field="*{grade}">
+<label for="username">Student Username</label>
+<input type="text" placeholder="Enter Username" name="username" th:field="*{username}">
+<label for="password">Student Password</label>
+<input type="password" placeholder="Enter Password" name="password" th:field="*{password}">
+<input type="submit">
+</div>
+<a th:href="@{/studentlogin}">Login Here</a>
+
+
+</form>
+
+</body>
+</html>

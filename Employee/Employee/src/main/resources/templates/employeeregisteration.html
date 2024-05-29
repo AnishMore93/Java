@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="'/status'" th:object="${employee}" method="POST">
+<div>
+<label for="name">Employee Name</label>
+<input type="text" placeholder="Enter your name" name="name" th:field="*{name}">
+<label for="position">Position</label>
+<input type="text" placeholder="Enter your position" name="position" th:field="*{position}">
+<label for="department">Department</label>
+<input type="text" placeholder="Enter your department" name="department" th:field="*{department}">
+<label for="contact">Contact</label>
+<input type="text" placeholder="Enter your contact" name="contact" th:field="*{contact}">
+<label for="username">Employee Username</label>
+<input type="text" placeholder="Enter Username" name="username" th:field="*{username}">
+<label for="password">Employee Password</label>
+<input type="password" placeholder="Enter Password" name="password" th:field="*{password}">
+<input type="submit">
+</div>
+<a th:href="@{/employeelogin}">Login Here</a>
+</form>
+</body>
+</html>

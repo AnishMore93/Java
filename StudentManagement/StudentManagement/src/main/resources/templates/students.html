@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #f4f7f9;
+        margin: 0;
+        padding: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+    thead {
+        background-color: #ff9a9e;
+        color: white;
+    }
+    th, td {
+        padding: 1em;
+        text-align: left;
+    }
+    th {
+        font-weight: bold;
+    }
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+    button {
+        padding: 0.5em 1em;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9em;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    button[type="submit"] {
+        background-color: #ff9a9e;
+        color: white;
+    }
+    button[type="submit"]:hover {
+        background-color: #ff7a7e;
+        box-shadow: 0 4px 10px rgba(255, 122, 126, 0.4);
+    }
+    form {
+        display: inline;
+    }
+</style>
+</head>
+<body>
+<table>
+		<thead>
+			<th>Id</th>
+			<th>Student Name</th>
+			<th>Age</th>
+			<th>Grade</th>
+		</thead>
+		<tbody>
+			<tr th:each="student : ${students}">
+				<td th:text="${student.id}">Id</td>
+				<td th:text="${student.name}">Student Name</td>
+				<td th:text="${student.age}">Age</td>
+				<td th:text="${student.grade}">Grade</td>
+				<td >
+				<form th:action="@{/student/delete}" method="POST">
+				<input type="hidden" name="id" th:value="${student.id}">
+				<button type="submit">Delete</button>
+				</form>
+				</td>
+				<td>
+				<form th:action="@{/student/edit}" method="GET">
+				<input type="hidden" name="id" th:value="${student.id}">
+				<button type="submit">Edit</button>
+				</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
